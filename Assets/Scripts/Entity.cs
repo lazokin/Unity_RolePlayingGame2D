@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class Entity : ScriptableObject {
-
+    
 	public string Name;
 	public int Age;
 	public string Faction;
@@ -19,7 +19,7 @@ public class Entity : ScriptableObject {
 	public Vector2 Position;
 
 	public void TakeDamage(int Amount) {
-		Health - Mathf.Clamp (Amount - Armor, 0, int.MaxValue);
+		Health -= Mathf.Clamp (Amount - Armor, 0, int.MaxValue);
 	}
 
 	public void Attack(Entity Entity) {
