@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Cave
+  - World
   layers:
   - Default
   - TransparentFX
@@ -40,4 +42,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1054285695
+    locked: 0
+  - name: Player
+    uniqueID: 972175011
+    locked: 0
+  - name: Foreground
+    uniqueID: 2734824603
+    locked: 0
+  - name: GUI
+    uniqueID: 1679905357
     locked: 0
