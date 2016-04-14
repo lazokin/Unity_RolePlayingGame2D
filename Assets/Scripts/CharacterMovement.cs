@@ -3,26 +3,25 @@ using System.Collections;
 
 public class CharacterMovement : MonoBehaviour
 {
-    private Rigidbody2D playerRigidBody2D;
-    private GameObject playerSprite;
+	[SerializeField] private GameObject sprite;
+	[SerializeField] private float speed = 4.0f;
+
+    private Rigidbody2D rigidBody2D;
     private Animator anim;
     private float movePlayerVector;
     private bool facingRight;
 
-    public float speed = 4.0f;
-
     void Awake()
     {
-        playerRigidBody2D = GetComponent<Rigidbody2D>();
-        playerSprite = transform.Find("PlayerSprite").gameObject;
-        anim = playerSprite.GetComponent<Animator>();
+		rigidBody2D = GetComponent<Rigidbody2D>();
+		anim = sprite.GetComponent<Animator>();
     }
 
     void Update()
     {
         movePlayerVector = Input.GetAxis("Horizontal");
         anim.SetFloat("speed", Mathf.Abs(movePlayerVector));
-        playerRigidBody2D.velocity = new Vector2(movePlayerVector * speed, playerRigidBody2D.velocity.y);
+		rigidBody2D.velocity = new Vector2(movePlayerVector * speed, rigidBody2D.velocity.y);
         if (movePlayerVector > 0 && !facingRight)
         {
             Flip();
@@ -36,8 +35,8 @@ public class CharacterMovement : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        Vector3 theScale = playerSprite.transform.localScale;
+		Vector3 theScale = sprite.transform.localScale;
         theScale.x *= -1;
-        playerSprite.transform.localScale = theScale;
+		sprite.transform.localScale = theScale;
     }
 }
